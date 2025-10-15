@@ -1,7 +1,7 @@
 ---
 title:          "ProTranslator: zero-shot protein function prediction using textual description"
 date:           2022-11-03 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "International Conference on Research in Computational Molecular Biology"
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'
