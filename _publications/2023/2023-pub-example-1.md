@@ -1,17 +1,22 @@
 ---
-title:          "Lorem ipsum: Dolor sit amet, consectetur adipiscing elit"
-date:           2023-01-05 00:01:00 +0800
+title:          "Multilingual translation for zero-shot biomedical classification using BioTranslator"
+date:           2023-02-10 00:01:00 +0800
 selected:       true
 pub:            "Nature Communications"
+# pub_pre:        "Submitted to "
+# pub_post:       'Under review.'
+# pub_last:       ' <span class="badge badge-pill badge-publication badge-success">2,000,000 downloads</span>'
 pub_date:       "2023"
 abstract: >-
-  Cover image is a photo by Thomas Renaud on Unsplash. The abstract of the publication is meant to be a TLDR (very brief summary with 1~2 sentences) of your paper.
-cover:          /assets/images/covers/cover1.jpg
+  BioTranslator introduces a multilingual translation framework that maps free-text biological concepts to non-text data, enabling scientists to interact with biological data without relying on predefined vocabularies. It allows the discovery of novel entities such as cell types and generalizes to tasks like protein function prediction and drug target identification.
+cover:          /assets/images/covers/biotranslator.jpg
 authors:
-- Your Name*
-- Robert White*
-- John Doe
-- Charles Green (Stanford)
+  - Hanwen Xu
+  - Addie Woicik
+  - Hoifung Poon
+  - Russ Altman
+  - Sheng Wang
 links:
-  Paper: https://www.cell.com
+  Code: https://github.com/HanwenXuTHU/BioTranslatorProject
+  Media Coverage: https://news.cs.washington.edu/2023/04/03/researchers-unveil-biotranslator-a-machine-learning-model-that-bridges-biological-data-and-text-to-accelerate-biomedical-discovery/
 ---
