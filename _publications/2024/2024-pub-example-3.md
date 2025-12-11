@@ -14,8 +14,8 @@ abstract: >-
   Prov-GigaPath achieves state-of-the-art results on 25 of 26 benchmark tasks and demonstrates strong potential for vision–language pathology modeling using real-world data.
 cover:          /assets/images/covers/gigapath.png
 authors:
-  - Hanwen Xu
-  - Naoto Usuyama
+  - Hanwen Xu*
+  - Naoto Usuyama*
   - Jaspreet Bagga
   - Sheng Zhang
   - Rajesh Rao
