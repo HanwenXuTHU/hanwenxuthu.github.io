@@ -34,6 +34,7 @@ authors:
 - Sheng Wang
 - Hoifung Poon
 links:
+  Paper: https://www.cell.com/cell/fulltext/S0092-8674(25)01312-1
   Code: https://github.com/prov-gigatime/GigaTIME
   Model: https://huggingface.co/prov-gigatime/GigaTIME
   Highlighted by Microsoft CEO: https://www.linkedin.com/posts/satyanadella_ai-generated-population-scale-is-changing-activity-7404189540757831680-VtoO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYt5x0BkRclV8JHegI_JSqZYfuO47PlsYk
