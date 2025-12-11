@@ -10,7 +10,7 @@ pub_date:       "2025"
 # semantic_scholar_id: 5b3969e0404b96524e03ddbbae6ac10e3357dc75  # use this to retrieve citation count
 abstract: >-
   ChatGPT said:The tumor immune microenvironment (TIME) shapes cancer progression and immunotherapy response, but mIF imaging is too expensive and slow for large populations. GigaTIME is a multimodal AI system that generates virtual mIF from routine H&E slides, trained on 40 million cells across 21 proteins. We applied it to 14,256 patients from 51 hospitals, producing 299k virtual mIF slides across 24 cancers and revealing 1,234 significant clinical associations previously impossible to detect. Independent validation on 10,200 TCGA patients confirmed these insights.
-cover:          /assets/images/covers/gigatime.png
+cover:          /assets/images/covers/gigatime2.png
 authors:
 - Jeya Maria Jose Valanarasu*
 - Hanwen Xu*
