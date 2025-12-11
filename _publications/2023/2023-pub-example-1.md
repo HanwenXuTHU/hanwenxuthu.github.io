@@ -1,7 +1,7 @@
 ---
 title:          "Multilingual translation for zero-shot biomedical classification using BioTranslator"
 date:           2023-02-10 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "Nature Communications"
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'

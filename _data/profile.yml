@@ -24,7 +24,7 @@ linkedin: hanwen-xu-5b939128a
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am Hanwen Xu, a Ph.D. student at the University of Washington, working at the intersection of generative AI and medicine, advised by <a href="https://homes.cs.washington.edu/~swang/" target="_blank">Prof. Sheng Wang</a>. Throughout My research builds large-scale multimodal foundation models that integrate pathology, radiology, and clinical records to decipher the complex cancer patient journey. I led/co-led projects such as GigaPath, GigaHeart, LLaVA-Rad and BiomedCLIP, aiming to advance multimodal AI for precision medicine and real-world clinical impact. Before my PhD, I earned a BS and MS in Department of Automation in Tsinghua University.
+    I am Hanwen Xu, a Ph.D. student at the University of Washington, working at the intersection of gigascale AI and precision medicine, advised by <a href="https://homes.cs.washington.edu/~swang/" target="_blank">Prof. Sheng Wang</a>. My research builds large-scale multimodal foundation models that integrate pathology, radiology, and clinical records to decipher the complex cancer patient journey. I led/co-led projects such as GigaPath, GigaTIME, LLaVA-Rad and BiomedCLIP, aiming to advance multimodal AI for precision medicine and real-world deployments. Before my PhD, I earned a BS and MS in Department of Automation in Tsinghua University.
   </p>
 
 portrait_url: /assets/images/photos/hanwen.jpg

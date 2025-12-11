@@ -45,5 +45,5 @@ authors:
 links:
   Code: https://github.com/prov-gigapath/prov-gigapath
   Model: https://huggingface.co/prov-gigapath/prov-gigapath
-  20+ Media Coverage: https://www.forbes.com/sites/saibala/2024/05/22/microsoft-announces-new-foundation-model-for-digital-pathology-diving-deeper-into-clinical-medicine/
+  50+ Media Coverage: https://www.forbes.com/sites/saibala/2024/05/22/microsoft-announces-new-foundation-model-for-digital-pathology-diving-deeper-into-clinical-medicine/
 ---
