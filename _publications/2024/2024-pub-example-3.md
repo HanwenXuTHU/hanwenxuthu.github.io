@@ -2,6 +2,7 @@
 title:          "A whole-slide foundation model for digital pathology from real-world data"
 date:           2024-05-22 00:01:00 +0800
 selected:       true
+pinned:         1
 pub:            "Nature"
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'

@@ -1,13 +1,14 @@
 primary_name: "Hanwen Xu"
 secondary_name: ""
-navbar_name: "Hanwen Xu"
+navbar_name: "HealthWorld-X Lab"
+tab_name: "HWX Lab"
 
-positions:
-- logo: /assets/images/badges/UW.png  # Logo is optional
-  name: Paul Allen School of Computer Science and Engineering, University of Washington
+# positions:
+# - logo: /assets/images/badges/UW.png  # Logo is optional
+#   name: Paul Allen School of Computer Science and Engineering, University of Washington
 
 
-email: "xuhw@cs.washington.edu"
+email: xuhanwenthu@gmail.com
 # cv_link: link-to-your-cv-file
 gscholar: HwO7L5sAAAAJ&hl  # This is an example, replace it with your own Google Scholar ID
 github: HanwenXuTHU
@@ -24,8 +25,21 @@ linkedin: hanwen-xu-5b939128a
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am Hanwen Xu, a Ph.D. student at the University of Washington, working at the intersection of gigascale AI and precision medicine, advised by <a href="https://homes.cs.washington.edu/~swang/" target="_blank">Prof. Sheng Wang</a>. My research builds large-scale multimodal foundation models that integrate pathology, radiology, and clinical records to decipher the complex cancer patient journey. I led/co-led projects such as GigaPath, GigaTIME, LLaVA-Rad and BiomedCLIP, aiming to advance multimodal AI for precision medicine and real-world deployments. Before my PhD, I earned a BS and MS in Department of Automation in Tsinghua University.
+    Hi, I'm an incoming tenure-track Assistant Professor in the Departments of Bioengineering and Computer and Information Science at the University of Pennsylvania, starting in spring 2027. I am currently a Visiting Faculty Researcher at Google. I earned my PhD from the Paul G. Allen School of Computer Science & Engineering at the University of Washington, where I was advised by Prof. Sheng Wang. Before that, I received my BS and MS from the Department of Automation at Tsinghua University. I have also benefited greatly from the longstanding mentorship and support of Dr. Hoifung Poon. 
   </p>
+  <p>
+    My research develops AI for healthcare and medicine, with a particular focus on (1) gigascale foundation models for healthcare, (2) multimodal patient representation learning, and (3) longitudinal modeling of patient health trajectories. More recently, I have been building foundation-model-powered agentic systems for cancer care. My work has been published in leading venues, including <b><a href="https://www.nature.com/articles/s41586-024-07441-w" target="_blank">Nature</a></b>, <b><a href="https://www.cell.com/cell/fulltext/S0092-8674(25)01312-1" target="_blank">Cell</a></b>, and <b><a href="https://doi.org/10.1056/AIoa2400640" target="_blank">NEJM AI</a></b>. It has received broad media coverage, including from Forbes, Yahoo, and MIT Technology Review. The resulting models have been downloaded more than six million times worldwide and demonstrated translational impact in real-world clinical settings.
+  </p>
+  <p>
+    <b>My research philosophy:</b> a golden loop between AI and medicine.
+  </p>
+  <ul>
+    <li><b>AI-0 → Medicine (short-term):</b> Stress-test general-purpose AI against real-world challenges. </li>
+    <li><b>Medicine → AI:</b> We reshape AI with insights from real-world medicine.</li>
+    <li><b>AI → Medicine (long-term):</b> Transform AI’s newfound capabilities into medicine’s new possibilities.</li>
+  </ul>
+
+
 
 portrait_url: /assets/images/photos/hanwen.jpg
 portrait_caption: >-

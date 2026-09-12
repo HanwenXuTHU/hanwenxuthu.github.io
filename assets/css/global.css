@@ -1,8 +1,51 @@
 @charset "utf-8";
+
+/* =========================================================
+   Theme matched to https://www.zhihuang.ai
+   Fonts: GeistVF / GeistMonoVF (self-hosted, same files)
+   Colors: #333 text on #f4f4f4, black navbar/hero,
+           #8fc7ff accent on dark, #06c section titles,
+           #111 footer
+   ========================================================= */
+
+@font-face {
+    font-family: GeistVF;
+    src: url('../fonts/GeistVF.woff') format("woff");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: GeistMonoVF;
+    src: url('../fonts/GeistMonoVF.woff') format("woff");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* keep anchor targets clear of the sticky navbar */
+.section-title,
+.section-heading {
+    scroll-margin-top: 90px;
+}
+
 body {
-    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: GeistVF, monospace;
     font-weight: 400;
-    padding-top: 5.0rem;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -10,40 +53,509 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 700;
 }
 
+a {
+    color: #0066cc;
+    transition: color .3s;
+}
+
+a:hover {
+    color: #8fc7ff;
+    text-decoration: none;
+}
+
+/* Content width matched to zhihuang.ai (max-width: 1400px) */
+.container-lg {
+    max-width: 1400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================
+   Navbar (black, sticky)
+   ========================= */
+.navbar-zhi {
+    z-index: 1000;
+    background-color: #000;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-zhi .navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    transition: transform .2s;
+}
+
+.navbar-zhi .navbar-logo-img {
+    height: 38px;
+    width: auto;
+}
+
+.navbar-zhi .navbar-brand:hover {
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.navbar-zhi .nav-item .nav-link {
+    color: #fff;
+    padding: .5rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    position: relative;
+    transition: color .3s ease-in-out;
+}
+
+.navbar-zhi .nav-item .nav-link:hover {
+    color: #8fc7ff;
+}
+
+.navbar-zhi .nav-item .nav-link::after {
+    content: "";
+    visibility: hidden;
+    background-color: #8fc7ff;
+    width: 100%;
+    height: 2px;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+}
+
+.navbar-zhi .nav-item .nav-link:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.navbar-zhi .nav-item.active .nav-link {
+    color: #8fc7ff;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.navbar-zhi .nav-item.active .nav-link::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+/* Transparent navbar over the hero image (homepage only).
+   The nav pulls the hero up behind itself; JS re-adds the black
+   background once the page is scrolled. */
+.navbar-zhi.navbar-transparent {
+    background-color: transparent;
+    box-shadow: none;
+    margin-bottom: -70px;
+    transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.navbar-zhi.navbar-transparent.navbar-scrolled {
+    background-color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 575.98px) {
+    .navbar-zhi .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.8);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        border-radius: 0 0 10px 10px;
+        padding: .5rem 1rem 1rem;
+        margin: 0 -2rem -1rem;
+    }
+    .navbar-zhi .nav-item {
+        text-align: right;
+        margin: .25rem 0;
+    }
+}
+
+/* =========================
+   Intro / hero section
+   ========================= */
+.intro-section {
+    width: 100%;
+    margin: 0 auto 40px;
+    position: relative;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.animated-background {
+    z-index: 0;
+    background: #f4f4f4 url('../images/covers/digital_twin.png') center 30% / cover no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* Image shows at full strength; only a soft dark scrim at the very top
+   keeps the transparent navbar readable */
+.overlay {
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 180px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.intro-content {
+    z-index: 1;
+    color: #333;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* extra top padding clears the transparent navbar overlapping the hero */
+    padding: 110px 20px 40px;
+    display: flex;
+    position: relative;
+}
+
+.intro-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.intro-details {
+    color: #fff;
+    flex: 2;
+    min-width: 300px;
+    /* frosted black card over the image */
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    padding: 24px 28px;
+}
+
+.intro-details h1 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.intro-details a {
+    color: #5fd8ff;
+}
+
+.intro-details a:hover {
+    color: #fff;
+}
+
+.intro-position {
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    margin-bottom: 1rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.contact-info li {
+    color: #fff;
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+.contact-info li .icon {
+    margin-right: .25rem;
+}
+
+.contact-info a {
+    color: #fff;
+}
+
+.contact-info a:hover {
+    color: #8fc7ff;
+}
+
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+    }
+    .intro-image {
+        max-width: 100%;
+    }
+    .intro-details {
+        width: 100%;
+    }
+    .intro-details h1 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================
+   Section titles (#06c)
+   ========================= */
+.section-title {
+    color: #0066cc;
+    text-align: center;
+    margin: 2.5rem 0 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    background-color: #0066cc;
+    width: 50px;
+    height: 3px;
+    margin: 10px auto 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.year-heading {
+    color: #0066cc;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* =========================
+   News & Publications
+   (clean, open layout)
+   ========================= */
+.section-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 3rem 0 1.25rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #eceef1;
+}
+
+.news-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.news-list li {
+    position: relative;
+    padding: .3rem 0 .3rem 1.1rem;
+    color: #374151;
+    font-size: 1.05rem;
+    line-height: 1.55;
+}
+
+.news-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #9ca3af;
+}
+
+.news-list .news-date {
+    font-weight: 700;
+    color: #111827;
+}
+
+.pub-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+}
+
+.pub-thumb {
+    flex: 0 0 220px;
+}
+
+.pub-thumb img,
+.pub-thumb svg {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.pub-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: .35rem;
+}
+
+.pub-authors {
+    font-size: 1.05rem;
+    color: #4b5563;
+    margin-bottom: .2rem;
+}
+
+.pub-venue {
+    font-size: 1.05rem;
+    color: #374151;
+    margin-bottom: .4rem;
+}
+
+.pub-abstract {
+    font-size: .85rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: .5rem;
+}
+
+.pub-links a {
+    display: inline-block;
+    font-size: .88rem;
+    padding: .15rem .7rem;
+    margin: .15rem .3rem .15rem 0;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    transition: color .2s, border-color .2s, background-color .2s;
+}
+
+.pub-links a:hover {
+    color: #0066cc;
+    border-color: #0066cc;
+    background-color: rgba(0, 102, 204, 0.05);
+}
+
+@media (max-width: 768px) {
+    .pub-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .pub-thumb {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+.card h6 {
+    color: #0066cc;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* =========================
+   Lab openings callout
+   ========================= */
+.opening-card {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.5rem 1.75rem;
+    border-left: 4px solid #0066cc;
+    font-size: 1.05rem;
+}
+
+.opening-icon-chip {
+    flex-shrink: 0;
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.7rem;
+    background: linear-gradient(135deg, #003d7a, #0066cc 55%, #3399ff);
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.35);
+}
+
+@media (max-width: 575.98px) {
+    .opening-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* =========================
+   Cards / content blocks
+   ========================= */
 .card {
-    border-radius: 0.8rem!important;
+    border-radius: 10px !important;
 }
 
 .card-img-overlay {
-    border-radius: 0.8rem!important;
+    border-radius: 10px !important;
 }
 
 .rounded-xl {
-    border-radius: 0.8rem!important;
+    border-radius: 10px !important;
 }
 
 .rounded-xl-bottom {
-    border-bottom-right-radius: 0.8rem !important;
-    border-bottom-left-radius: 0.8rem !important;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
 }
 
 .rounded-xl-top {
-    border-top-left-radius: 0.8rem !important;
-    border-top-right-radius: 0.8rem !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
 }
 
+/* =========================
+   Footer (dark, #111)
+   ========================= */
+footer.footer {
+    color: #e0e0e0;
+    background-color: #111;
+    padding: 1rem;
+    margin-top: 2rem;
+}
 
+footer.footer a {
+    color: #b0b0b0;
+    transition: color .3s;
+}
+
+footer.footer a:hover {
+    color: #fff;
+}
+
+footer.footer .text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* =========================
+   Misc (template utilities)
+   ========================= */
 .text-profile-position {
     font-weight: 400;
 }
 
 .text-profile-bio {
-    /* font-family: "Raleway"; */
     font-weight: 400;
-}
-
-.navbar {
-    opacity: 0.95;
 }
 
 .inline-badge {
@@ -87,6 +599,5 @@ div.lazy {
 }
 
 .email-text {
-    font-family: Courier, monospace;
+    font-family: GeistMonoVF, Courier, monospace;
 }
-

@@ -4,19 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ page.title }} - {{ site.data.profile.navbar_name }}</title>
+    <title>{{ site.data.profile.tab_name | default: site.data.profile.navbar_name }}{% unless page.url == "/" %} - {{ page.title }}{% endunless %}</title>
+    <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}?v=2">
+    <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}?v=2" type="image/svg+xml">
+    <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}?v=2" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}?v=2">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ '/assets/css/global.css' | relative_url }}">
 </head>
-<body class="bg-light" {{ page.body_attr }}>
+<body {{ page.body_attr }}>
     {% include navbar.html %}
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
         {{content}}
@@ -42,6 +43,62 @@
               ],
               throwOnError : false
             });
+        });
+    </script>
+    <script>
+        // transparent navbar turns solid black once the page is scrolled
+        document.addEventListener("DOMContentLoaded", function() {
+            var nav = document.querySelector(".navbar-transparent");
+            if (!nav) return;
+            var onScroll = function() {
+                nav.classList.toggle("navbar-scrolled", window.scrollY > 30);
+            };
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+        });
+        // collapse the mobile menu after tapping an anchor link
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll("#navbarResponsive .nav-link").forEach(function(link) {
+                link.addEventListener("click", function() {
+                    if (window.jQuery) { jQuery("#navbarResponsive").collapse("hide"); }
+                });
+            });
+        });
+        // scrollspy: move the navbar highlight to the section in view
+        document.addEventListener("DOMContentLoaded", function() {
+            var items = Array.prototype.slice.call(document.querySelectorAll("#navbarResponsive .nav-item"));
+            var anchors = [];
+            var homeItem = null;
+            items.forEach(function(li) {
+                var a = li.querySelector("a.nav-link");
+                if (!a) return;
+                var href = a.getAttribute("href") || "";
+                var hashIdx = href.indexOf("#");
+                if (hashIdx === -1) {
+                    if (!homeItem) homeItem = li;
+                    return;
+                }
+                var target = document.getElementById(href.slice(hashIdx + 1));
+                if (target) anchors.push({ li: li, target: target });
+            });
+            if (!anchors.length) return; // sections not on this page
+            var update = function() {
+                var pos = 120; // just below the sticky navbar
+                var current = null;
+                var bestTop = -Infinity;
+                anchors.forEach(function(x) {
+                    var top = x.target.getBoundingClientRect().top;
+                    if (top <= pos && top > bestTop) {
+                        bestTop = top;
+                        current = x.li;
+                    }
+                });
+                items.forEach(function(li) { li.classList.remove("active"); });
+                (current || homeItem || items[0]).classList.add("active");
+            };
+            window.addEventListener("scroll", update, { passive: true });
+            window.addEventListener("resize", update, { passive: true });
+            update();
         });
     </script>
     <script src="{{ '/assets/js/common.js' | relative_url }}"></script>

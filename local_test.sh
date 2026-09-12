@@ -1,0 +1,1 @@
+JEKYLL_NO_BUNDLER_REQUIRE=true ~/.gem/ruby/2.6.0/bin/jekyll serve

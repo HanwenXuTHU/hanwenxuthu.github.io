@@ -2,6 +2,7 @@
 title:          "Multimodal AI generates virtual population for tumor microenvironment modeling"
 date:           2025-12-10 00:01:00 +0800
 selected:       true
+pinned:         2
 pub:            "Cell"
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'

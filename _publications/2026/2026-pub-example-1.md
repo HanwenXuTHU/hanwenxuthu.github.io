@@ -2,11 +2,10 @@
 title:          "A Cardiac-specific CT Foundation Model for Heart Transplantation"
 date:           2025-08-19 00:01:00 +0800
 selected:       false
-pub:            "Nature Medicine"
-pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
+pub:            "Nature Communications"
+pub_post:       ' Accepted'
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">11,000 downloads</span>'
-pub_date:       "2025"
+pub_date:       "2026"
 abstract: >-
   Heart failure is a leading cause of death, and accurate donor–recipient heart size matching is vital for transplantation success. GigaHeart, trained on 180,897 CT scans, focuses on cardiac regions to achieve state-of-the-art performance across cardiac tasks. It improves heart mass prediction by 33% and reduces sizing errors by 57% compared to traditional equations, enabling more precise donor–recipient matching.
 cover:          /assets/images/covers/gigaheart.webp
